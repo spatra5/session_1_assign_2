@@ -1,0 +1,28 @@
+
+<!-- Write an anonymous function which takes email address as parameter and returns True/False
+after validating the input parameter.
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		var validateEmail = function(email) {
+			/* /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ 
+			   \w+ ([\.-]? \w+ ) * - 	It begins with at least one or more word characters including the '_', equivalent to [A-Za-z0-9_]. , 
+										followed by . or - and . or - must follow by a word character (A-Za-z0-9_).
+			   @ - 						It matches only @ character.
+			   \w+([.-]?\w+)* -			It matches the domain name with the same pattern of user name described above.
+			   \.\w{2,3} - 				It matches a . followed by two or three word characters, e.g., .edu, .org, .com, .uk, .us, .co etc.
+			*/
+			var emailFilter =  /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ ;
+			if (!emailFilter.test(email)) 
+				alert("Please enter a valid email.");
+			return emailFilter.test(email);	
+		};
+	</script>
+</head>
+<body>
+	<input type="text" value="Enter an email" name="email" onchange="validateEmail(this.value)" />
+</body>
+</html>
